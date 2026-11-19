@@ -3,5 +3,16 @@ name = "flappy-rs"
 version = "0.1.0"
 edition = "2024"
 
-[dependencies]
-bevy = "0.20.1"
+[dependencies.bevy]
+version = "0.20.1"
+default-features = false
+features = [
+    "2d", "ui", "audio", "multi_threaded", "dynamic_linking"
+]
+
+[profile.dev]
+opt-level = 1
+# debug = "line-tables-only"
+
+[profile.dev.package."*"]
+opt-level = 3
